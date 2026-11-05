@@ -1,0 +1,52 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "Sales representatives in a modern retail store environment.",
+      "imageUrl": "https://images.unsplash.com/photo-1758520388383-55023490a258?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyZXRhaWwlMjBzYWxlc3xlbnwwfHx8fDE3NjEyNjI3NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "retail sales"
+    },
+    {
+      "id": "training1",
+      "description": "Close-up of a smartphone camera lens.",
+      "imageUrl": "https://images.unsplash.com/photo-1655802334467-5591938e0c62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzbWFydHBob25lJTIwY2FtZXJhfGVufDB8fHx8MTc2MTI2Mjc0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartphone camera"
+    },
+    {
+      "id": "training2",
+      "description": "Abstract visualization of artificial intelligence.",
+      "imageUrl": "https://images.unsplash.com/photo-1636690513351-0af1763f6237?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMEFJfGVufDB8fHx8MTc2MTE3MjIwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract AI"
+    },
+    {
+      "id": "training3",
+      "description": "People in a meeting with laptops.",
+      "imageUrl": "https://images.unsplash.com/photo-1639664810686-b817b22bb549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsYXB0b3AlMjBtZWV0aW5nfGVufDB8fHx8MTc2MTI2Mjc0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop meeting"
+    },
+    {
+      "id": "training4",
+      "description": "A smart home hub on a kitchen counter.",
+      "imageUrl": "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzbWFydCUyMGhvbWV8ZW58MHx8fHwxNzYxMjQyOTc4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smart home"
+    },
+    {
+      "id": "vip-content",
+      "description": "Exclusive content for verified users.",
+      "imageUrl": "https://images.unsplash.com/photo-1717548373009-73f5cacec59a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxleGNsdXNpdmUlMjBjb250ZW50fGVufDB8fHx8MTc2MTI2MjczOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "exclusive content"
+    },
+    {
+      "id": "avatar-placeholder",
+      "description": "Placeholder for user avatar.",
+      "imageUrl": "https://images.unsplash.com/photo-1640952131659-49a06dd90ad2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZXJzb24lMjBhdmF0YXJ8ZW58MHx8fHwxNzYxMTY5Mzg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person avatar"
+    },
+    {
+      "id": "login-background",
+      "description": "A sailboat near a lighthouse on a calm sea at dusk.",
+      "imageUrl": "https://images.unsplash.com/photo-1583134979469-64d9d4e1fb36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsaWdodGhvdXNlJTIwYm9hdHxlbnwwfHx8fDE3NjE1ODQ3NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lighthouse boat"
+    }
+  ]
+}

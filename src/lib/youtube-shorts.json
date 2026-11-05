@@ -1,0 +1,30 @@
+
+{
+  "shorts": [
+    {
+      "id": "short1",
+      "videoId": "O6A0g3zCgqg",
+      "title": "Pixel 9 Pro: A First Look"
+    },
+    {
+      "id": "short2",
+      "videoId": "t39gY8e0pL0",
+      "title": "Google AI: Ask and Imagine"
+    },
+    {
+      "id": "short3",
+      "videoId": "mS9b5-niO6Y",
+      "title": "Chromebook Productivity Hacks"
+    },
+    {
+      "id": "short4",
+      "videoId": "EKaF4t0g9pE",
+      "title": "Get to Know Nest Hub"
+    },
+    {
+      "id": "short5",
+      "videoId": "vuptbDU27o0",
+      "title": "Pixel Fold: A New Dimension"
+    }
+  ]
+}

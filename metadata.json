@@ -1,0 +1,8 @@
+{
+  "name": "Retail Sales Training Hub",
+  "description": "Training and community hub for retail sales professionals with courses, transcripts, and social features.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

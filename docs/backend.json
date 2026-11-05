@@ -1,0 +1,555 @@
+
+{
+  "entities": {
+    "Post": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Post",
+      "type": "object",
+      "description": "Represents a user-generated post on the social feed.",
+      "properties": {
+        "content": { "type": "string", "description": "The text content of the post." },
+        "authorId": { "type": "string", "description": "The UID of the user who created the post." },
+        "authorName": { "type": "string", "description": "The display name of the post's author." },
+        "authorAvatar": { "type": "string", "description": "The URL of the author's avatar image." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "The timestamp when the post was created." },
+        "likeCount": { "type": "number", "description": "The number of likes the post has received." },
+        "commentCount": { "type": "number", "description": "The number of comments on the post." }
+      },
+      "required": ["content", "authorId", "authorName", "createdAt", "likeCount", "commentCount"]
+    },
+    "Comment": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Comment",
+      "type": "object",
+      "description": "Represents a comment on a post.",
+      "properties": {
+        "content": { "type": "string", "description": "The text content of the comment." },
+        "authorId": { "type": "string", "description": "The UID of the user who wrote the comment." },
+        "authorName": { "type": "string", "description": "The display name of the comment's author." },
+        "authorAvatar": { "type": "string", "description": "The URL of the author's avatar image." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "The timestamp when the comment was created." }
+      },
+      "required": ["content", "authorId", "authorName", "createdAt"]
+    },
+    "Like": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Like",
+      "type": "object",
+      "description": "Represents a user's like on a post. The document ID is the user's UID.",
+      "properties": {
+        "createdAt": { "type": "string", "format": "date-time", "description": "The timestamp when the like was created." }
+      },
+      "required": ["createdAt"]
+    },
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents a user profile in the Retail Sales Training Hub application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the UserProfile entity."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "User's first name."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "User's last name."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "userType": {
+          "type": "string",
+          "description": "User type (e.g., Retail/Call Center Sales Associate, Territory Sales Manager)."
+        },
+        "userCountry": {
+          "type": "string",
+          "description": "User's country."
+        },
+        "preferredLanguage": {
+          "type": "string",
+          "description": "User's preferred language."
+        },
+        "timezone": {
+          "type": "string",
+          "description": "User's timezone."
+        },
+        "storeTypeId": {
+          "type": "string",
+          "description": "Reference to StoreType. (Relationship: StoreType 1:N UserProfile)"
+        },
+        "retailerPartnerId": {
+          "type": "string",
+          "description": "Reference to RetailerPartner. (Relationship: RetailerPartner 1:N UserProfile)"
+        },
+        "storeNameId": {
+          "type": "string",
+          "description": "Reference to StoreName. (Relationship: StoreName 1:N UserProfile)"
+        },
+        "storeLocationId": {
+          "type": "string",
+          "description": "Reference to StoreLocation. (Relationship: StoreLocation 1:N UserProfile)"
+        },
+        "acceptPromotionalNotifications": {
+          "type": "boolean",
+          "description": "Indicates whether the user accepts promotional notifications."
+        },
+        "acceptShareTrainingData": {
+          "type": "boolean",
+          "description": "Indicates whether the user accepts to share training data with store management."
+        },
+        "acceptTermsServiceAgreement": {
+          "type": "boolean",
+          "description": "Indicates whether the user accepts the terms of service agreement."
+        },
+        "workEmail": {
+          "type": "string",
+          "description": "User's work email address.",
+          "format": "email"
+        },
+        "isEmploymentVerified": {
+          "type": "boolean",
+          "description": "Indicates whether the user's employment is verified."
+        },
+        "isGoogleAuthUser": {
+          "type": "boolean",
+          "description": "Indicates whether the user signed up using Google authentication."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User's display name (gamertag)."
+        },
+        "employeeId": {
+          "type": "string",
+          "description": "User's employee ID."
+        },
+        "communicationEmailPreference": {
+          "type": "string",
+          "description": "User's preference for communication email (personal or work)."
+        },
+        "isInChampionsProgram": {
+          "type": "boolean",
+          "description": "Indicates whether the user is a member of the champions program."
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email",
+        "userType",
+        "userCountry",
+        "preferredLanguage",
+        "timezone",
+        "acceptPromotionalNotifications",
+        "acceptShareTrainingData",
+        "acceptTermsServiceAgreement"
+      ]
+    },
+    "StoreType": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "StoreType",
+      "type": "object",
+      "description": "Represents the type of store.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the StoreType entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the store type (e.g., COR, Dealer, Owned, Retailers, Not Applicable)."
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "RetailerStore": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "RetailerStore",
+      "type": "object",
+      "description": "Represents a denormalized retailer and store location.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the RetailerStore entity."
+        },
+        "countryId": {
+          "type": "string",
+          "description": "Reference to Country."
+        },
+        "storeTypeId": {
+          "type": "string",
+          "description": "Reference to StoreType."
+        },
+        "retailerName": {
+          "type": "string",
+          "description": "Name of the retailer."
+        },
+        "storeName": {
+          "type": "string",
+          "description": "Name of the store."
+        },
+        "storeLocation": {
+          "type": "string",
+          "description": "Full address of the store location."
+        },
+        "storeId": {
+          "type": "string",
+          "description": "The unique identifier for the store location (e.g. ICE00028-124727)."
+        }
+      },
+      "required": [
+        "id",
+        "countryId",
+        "storeTypeId",
+        "retailerName",
+        "storeName",
+        "storeLocation",
+        "storeId"
+      ]
+    },
+    "Country": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Country",
+      "type": "object",
+      "description": "Represents a country.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Country entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the country."
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "Training": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Training",
+      "type": "object",
+      "description": "Represents a training course.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the Training entity." },
+        "title": { "type": "string", "description": "Title of the training content." },
+        "description": { "type": "string", "description": "Description of the training content." },
+        "type": { "type": "string", "enum": ["Online", "ILT", "VILT", "Legacy"], "description": "Type of training." },
+        "duration": { "type": "string", "description": "Estimated duration of the training." },
+        "launchDate": { "type": "string", "format": "date-time", "description": "Date when the content becomes available." },
+        "endDate": { "type": "string", "format": "date-time", "description": "Date when the content is no longer available." },
+        "topic": { "type": "string", "description": "The topic of the training." },
+        "contentUrl": { "type": "string", "description": "URL for the training content (for Online type)." },
+        "thumbnailUrl": { "type": "string", "description": "URL for the thumbnail image." },
+        "location": { "type": "string", "description": "Location for ILT events." },
+        "eventDetails": { "type": "string", "description": "Details for ILT or VILT events." },
+        "isVIPContent": { "type": "boolean", "description": "Indicates whether the training is VIP content." },
+        "selfRegistration": { "type": "boolean", "description": "Indicates if users can self-register." },
+        "slotsAvailable": { "type": "number", "description": "Number of available slots." },
+        "hostName": { "type": "string", "description": "Name of the training host." }
+      },
+      "required": ["id", "title", "description", "type", "topic", "thumbnailUrl"]
+    },
+    "Topic": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Topic",
+        "type": "object",
+        "description": "Represents a training topic.",
+        "properties": {
+            "id": { "type": "string", "description": "Unique identifier for the Topic." },
+            "name": { "type": "string", "description": "Name of the topic." }
+        },
+        "required": ["id", "name"]
+    },
+    "AuthDomain": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "AuthDomain",
+      "type": "object",
+      "description": "Represents an authorized email domain for user registration.",
+      "properties": {
+        "domain": { "type": "string", "description": "The email domain name (e.g., example.com)." }
+      },
+      "required": ["domain"]
+    },
+    "AppTheme": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "AppTheme",
+      "type": "object",
+      "description": "Defines the visual theme and branding of the application.",
+      "properties": {
+        "appName": {
+          "type": "string",
+          "description": "The name of the application."
+        },
+        "appLogoUrl": {
+          "type": "string",
+          "description": "URL for the application logo image."
+        },
+        "font": {
+          "type": "string",
+          "description": "The primary font for the application, sourced from Google Fonts."
+        },
+        "loginImageUrl": {
+          "type": "string",
+          "description": "URL for the background image on the login screen."
+        },
+        "heroImageUrl": {
+          "type": "string",
+          "description": "URL for the background image on the hero section of the homepage."
+        },
+        "appTitleColor": {
+          "type": "string",
+          "description": "The color for the application title, in hex format."
+        },
+        "backgroundColor": {
+          "type": "string",
+          "description": "The main background color for the app, in hex format."
+        },
+        "leftMenuColor": {
+          "type": "string",
+          "description": "The background color for the sidebar/left menu, in hex format."
+        },
+        "sidebarForegroundColor": {
+          "type": "string",
+          "description": "The text color for the sidebar/left menu, in hex format."
+        },
+        "sidebarAccentColor": {
+          "type": "string",
+          "description": "The background color for the selected menu item in the sidebar, in hex format."
+        },
+        "heroBackgroundColor": {
+          "type": "string",
+          "description": "The background color for the hero banner, in hex format."
+        },
+        "heroTextColor": {
+          "type": "string",
+          "description": "The text color for the hero banner, in hex format."
+        }
+      }
+    },
+    "Enrollment": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Enrollment",
+      "type": "object",
+      "description": "Represents a user's enrollment in a training course.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the enrollment." },
+        "userId": { "type": "string", "description": "Reference to the UserProfile." },
+        "trainingId": { "type": "string", "description": "Reference to the Training." },
+        "enrolledDate": { "type": "string", "format": "date-time", "description": "Date of enrollment." },
+        "completedDate": { "type": "string", "format": "date-time", "description": "Date of completion." },
+        "status": { "type": "string", "enum": ["enrolled", "completed"], "description": "Status of the enrollment." },
+        "rating": { "type": "number", "description": "User-provided rating for the course." },
+        "performance": { "type": "string", "description": "Performance metric." },
+        "user": { "type": "object", "description": "Denormalized user data for easy display." },
+        "training": { "type": "object", "description": "Denormalized training data for easy display." }
+      },
+      "required": ["id", "userId", "trainingId", "enrolledDate", "status"]
+    },
+    "LegacyTranscript": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "LegacyTranscript",
+      "type": "object",
+      "description": "Represents a single legacy transcript record uploaded by an admin.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the transcript record." },
+        "userId": { "type": "string", "description": "Reference to the UserProfile this record belongs to." },
+        "courseName": { "type": "string", "description": "The name of the legacy course." },
+        "enrolledDate": { "type": "string", "format": "date-time", "description": "Date of enrollment from legacy system." },
+        "completedDate": { "type": "string", "format": "date-time", "description": "Date of completion from legacy system." },
+        "status": { "type": "string", "enum": ["enrolled", "completed"], "description": "Status of the course in the legacy system." },
+        "performance": { "type": "string", "description": "Performance metric from the legacy system." },
+        "user": { "type": "object", "description": "Denormalized user data for context." }
+      },
+      "required": ["id", "userId", "courseName", "enrolledDate", "status"]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous",
+      "google.com"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/countries/{countryId}",
+        "definition": {
+          "entityName": "Country",
+          "schema": {
+            "$ref": "#/backend/entities/Country"
+          },
+          "description": "Collection to store countries, manageable only by admins.",
+          "params": [
+            {
+              "name": "countryId",
+              "description": "Unique identifier for the country."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/store_types/{storeTypeId}",
+        "definition": {
+          "entityName": "StoreType",
+          "schema": {
+            "$ref": "#/backend/entities/StoreType"
+          },
+          "description": "Collection to store store types, manageable only by admins.",
+          "params": [
+            {
+              "name": "storeTypeId",
+              "description": "Unique identifier for the store type."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/retailers_stores/{retailerStoreId}",
+        "definition": {
+          "entityName": "RetailerStore",
+          "schema": {
+            "$ref": "#/backend/entities/RetailerStore"
+          },
+          "description": "Collection to store denormalized retailer and store data.",
+          "params": [
+            {
+              "name": "retailerStoreId",
+              "description": "Unique identifier for the retailer/store."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Collection to store user profiles. Accessible by the user and admins.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "Unique identifier for the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/trainings/{trainingId}",
+        "definition": {
+          "entityName": "Training",
+          "schema": {
+            "$ref": "#/backend/entities/Training"
+          },
+          "description": "Collection to store training courses. ",
+          "params": [
+            {
+              "name": "trainingId",
+              "description": "Unique identifier for the training."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/topics/{topicId}",
+        "definition": {
+            "entityName": "Topic",
+            "schema": { "$ref": "#/backend/entities/Topic" },
+            "description": "Collection to store training topics, manageable by admins.",
+            "params": [{ "name": "topicId", "description": "Unique identifier for the topic." }]
+        }
+      },
+      {
+        "path": "/auth_domains/{domainId}",
+        "definition": {
+            "entityName": "AuthDomain",
+            "schema": { "$ref": "#/backend/entities/AuthDomain" },
+            "description": "Collection to store authorized email domains for registration.",
+            "params": [{ "name": "domainId", "description": "Unique identifier for the domain." }]
+        }
+      },
+       {
+        "path": "/config/{configId}",
+        "definition": {
+          "entityName": "AppTheme",
+          "schema": {
+            "$ref": "#/backend/entities/AppTheme"
+          },
+          "description": "Collection to store application-wide configuration, such as theme settings. Only a single document with a known ID (e.g., 'theme') should exist here.",
+          "params": [
+            {
+              "name": "configId",
+              "description": "The unique identifier for the configuration document, e.g., 'theme'."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/enrollments/{enrollmentId}",
+        "definition": {
+            "entityName": "Enrollment",
+            "schema": { "$ref": "#/backend/entities/Enrollment" },
+            "description": "Collection to store user enrollments in new training courses.",
+            "params": [{ "name": "enrollmentId", "description": "Unique identifier for the enrollment." }]
+        }
+      },
+      {
+        "path": "/legacy_transcripts/{transcriptId}",
+        "definition": {
+            "entityName": "LegacyTranscript",
+            "schema": { "$ref": "#/backend/entities/LegacyTranscript" },
+            "description": "Collection to store historical training records uploaded by admins.",
+            "params": [{ "name": "transcriptId", "description": "Unique identifier for the legacy transcript record." }]
+        }
+      },
+      {
+        "path": "/posts/{postId}",
+        "definition": {
+            "entityName": "Post",
+            "schema": { "$ref": "#/backend/entities/Post" },
+            "description": "Collection to store social feed posts.",
+            "params": [{ "name": "postId", "description": "Unique identifier for the post." }]
+        }
+      },
+      {
+        "path": "/posts/{postId}/comments/{commentId}",
+        "definition": {
+            "entityName": "Comment",
+            "schema": { "$ref": "#/backend/entities/Comment" },
+            "description": "Sub-collection for comments on a specific post.",
+            "params": [
+              { "name": "postId", "description": "The ID of the parent post." },
+              { "name": "commentId", "description": "Unique identifier for the comment." }
+            ]
+        }
+      },
+      {
+        "path": "/posts/{postId}/likes/{likeId}",
+        "definition": {
+            "entityName": "Like",
+            "schema": { "$ref": "#/backend/entities/Like" },
+            "description": "Sub-collection for likes on a specific post. The document ID is the UID of the user who liked it.",
+            "params": [
+              { "name": "postId", "description": "The ID of the parent post." },
+              { "name": "likeId", "description": "The UID of the user who liked the post." }
+            ]
+        }
+      }
+    ]
+  }
+}
